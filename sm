@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#	export	LD_LIBRARY_PATH=/usr/local/yjp/bin/linux-x86-32
+#	export	JAVA_OPTS="-Xmx1024M -Xms256M -agentlib:yjpagent=dir=/dar/pe/yjp,onexit=memory"
+#	export	JAVA_OPTS="-server"
+	export	JAVA_OPTS="-XX:-PrintCompilation -XX:+PrintGC"
+
+#	export	JAVA_HOME=/usr/java/jdk1.7.0
+#	export	PATH="$JAVA_HOME/bin:bin:$PATH"
+
+	exec \
+		/usr/local/bin/scala \
+			-classpath '/home/github/pe/target/scala_2.8.0/classes' \
+			rrs.perf.StreamMark \
+			"$@"
